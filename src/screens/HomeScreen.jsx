@@ -1,6 +1,7 @@
 import { Text } from "react-native-paper";
 import { View } from "react-native";
 import React from "react";
+import { styles } from "../utils/styles";
 
 
 /**
@@ -16,8 +17,15 @@ import React from "react";
  */
 export default function HomeScreen({ props }) {
     return (
-        <View>
-            <Text>Carregando...</Text>
+        <View
+            style={styles.container}
+        >
+            <View
+                style={{ ...styles.containerInner, ...styles.containerCenter }}
+            >
+                <Text variant="headlineLarge">Bem vindo ao IStock.</Text>
+                <Text variant="bodyMedium">Sistema de gerenciamento de produtos.</Text>
+            </View>
         </View>
     )
 }

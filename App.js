@@ -1,4 +1,7 @@
+import { useColorScheme } from "react-native";
 import RootNavigation from "./src";
+import { customTheme } from "./src/utils/theme";
+import { Provider as NativeProvider, useTheme } from "react-native-paper";
 
 /**
  * @author        Fausto Rodrigo Toloi <faustortoloi@gmail.com>
@@ -10,5 +13,20 @@ import RootNavigation from "./src";
  * @return {*} 
  */
 export default function App() {
-  return (<RootNavigation />)
+
+  // Verifica se o sistema está usando Dark Mode
+  const theme = useColorScheme();
+
+  // define a variável de tema escuro e claro
+  const themeDark = customTheme.dark;
+  const themeLight = customTheme.light;
+
+  return (
+    <NativeProvider
+      // Define o tema do aplicativo
+      theme={theme === "dark" ? themeDark : themeLight}
+    >
+      <RootNavigation />
+    </NativeProvider>
+  )
 }

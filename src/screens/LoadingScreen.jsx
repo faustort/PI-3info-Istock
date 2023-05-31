@@ -1,5 +1,7 @@
 import { Text } from "react-native-paper";
 import { View } from "react-native";
+import { styles } from "../utils/styles";
+import { useEffect } from "react";
 
 
 /**
@@ -13,8 +15,18 @@ import { View } from "react-native";
  * @return          {React.Component} 
  */
 export default function LoadingScreen({ navigation }) {
+
+    useEffect(() => {
+        // 
+        setTimeout(() => {
+            navigation.navigate('MBTNavigator')
+        }, 500)
+    }, [])
+
     return (
-        <View>
+        <View
+            style={styles.container}
+        >
             <Text>Carregando...</Text>
         </View>
     )
